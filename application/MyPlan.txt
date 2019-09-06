@@ -1,0 +1,31 @@
+           
+Views
+
+public/
+1.home
+2.Culutre
+3.Destination
+4.Footer
+    Footer
+5.Header
+    Header2
+6.Navbar
+
+login
+
+private/
+1.dashboard
+2.adderuser
+3.viewuser
+
+controlier
+
+mainC
+	index
+	cal
+	dest
+workC
+	
+Model
+
+WorkM
