@@ -10,7 +10,6 @@ public/
 5.Header
     Header2
 6.Navbar
-
 7.login
 
 private/
