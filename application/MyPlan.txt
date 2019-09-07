@@ -12,6 +12,7 @@ Work Done/
 1. Css,JS,Img and all href and links are changes with base_url
 2. Internal working structure and links are doing properly
 3. Different header, Nav,Footer are created.
+4. login system is created
 
 **Views
 
@@ -39,7 +40,12 @@ MainC
 	cal
 	dest
 WorkC
-	
+	AuthUser
+
+UserC
+	logout
+
 **Model
 
 WorkM
+	CheckUserName
