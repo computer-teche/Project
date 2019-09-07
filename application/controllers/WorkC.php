@@ -3,6 +3,15 @@
 
 class WorkC extends CI_Controller{
 
+    public function __construct()  
+    {
+        parent::__construct();
+        if($this->session->userdata('username'))
+        {
+            redirect('UserC');
+        }
+    }
+
     public function index()
     {
         $this->load->view('public/Login');
@@ -15,14 +24,19 @@ class WorkC extends CI_Controller{
 
         $this->load->model('WorkM');
 
-        if($this->WorkM->CheckUserName($un)){
-            
-            echo "work";
+        if($this->WorkM->CheckUserName($un,$pw)){
+            redirect('UserC');
         }else {
-            
-            echo "not work";
+            redirect('WorkC');
         }
+    }
+    
+    public function logout()
+    {
 
+        $this->session->unset_userdata('username');
+        redirect('MainC');
+        // $this->session->unset_userdata('id');
     }
     
     
