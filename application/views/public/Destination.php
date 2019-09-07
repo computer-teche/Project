@@ -3,7 +3,7 @@
 
   <body>
   <!--navigation-->
-  <?php include('Navbar.php'); ?>
+  <?php include('Navbar2.php'); ?>
 		<!--//navigation-->
   <div class="site-wrap">
 

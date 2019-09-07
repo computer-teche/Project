@@ -16,14 +16,14 @@
               </div>
               <div class="col-md-6 col-lg-6">
                 <ul class="list-unstyled">
-                  <li><a href="index.html">Home</a></li>
-                  <li><a href="Destination.html">Destinations</a></li>
+                  <li><a href="<?= base_url('MainC/')?>">Home</a></li>
+                  <li><a href="<?= base_url('MainC/Dest')?>">Destinations</a></li>
                   </ul>
               </div>
               <div class="col-md-6 col-lg-6">
                 <ul class="list-unstyled">
-                  <li><a href="culture.html">Culture</a></li>
-                  <li><a href="#">About</a></li>
+                  <li><a href="<?= base_url('MainC/Cul')?>">Culture</a></li>
+                  <li><a href="<?= base_url('MainC/')?>">About</a></li>
 
                 </ul>
               </div>

@@ -1,4 +1,13 @@
-           
+
+
+problems /
+
+1. Due to two different theme in home and dest,cul page we need two different types of boostrape versions and js files as will and size of image is also a big problem in loading time
+
+2. Current tempoary header and navbar and footer are used to avoid this but we need a permanet solution
+3. Ethere the single home page or both cul,Dest have to change.
+
+
 **Views
 
 public/
@@ -10,6 +19,7 @@ public/
 5.Header
     Header2
 6.Navbar
+	Navbar2
 7.login
 
 private/
