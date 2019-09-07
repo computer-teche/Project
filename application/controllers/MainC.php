@@ -18,6 +18,8 @@ class MainC extends CI_Controller{
         $this->load->view('public/Destination');
     }
 
+    
+
 }
 
 

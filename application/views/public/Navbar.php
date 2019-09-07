@@ -35,8 +35,11 @@
 								<li><a href="#about" data-hover="About Us" class="scroll">About Us</a></li>
 								<li><a href="<?= base_url('MainC/Dest')?>" data-hover="destination">Destination</a></li>
 								<li><a href="<?= base_url('MainC/Cul')?>" data-hover="culture">Culture</a></li>
+								<li><a href="<?= base_url('WorkC/')?>">Login</a></li>
 								<li><a href="#contact" data-hover="Contact Us" class="scroll">Contact Us</a></li>
+								
 							</ul>
+
 						</div>
 					</nav>
 				</div>

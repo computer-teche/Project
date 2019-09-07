@@ -17,7 +17,7 @@
     </div>
    <div class="slide-one-item home-slider owl-carousel">
       
-      <div class="site-blocks-cover overlay" style="background-image: url(images/dham.jpg') ?>);" data-aos="fade" data-stellar-background-ratio="0.5">
+      <div class="site-blocks-cover overlay" style="background-image: url(<?= base_url('assets/images/dham.jpg') ?>);" data-aos="fade" data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row align-items-center justify-content-center text-center">
 
@@ -32,7 +32,7 @@
         </div>
       </div>  
 
-      <div class="site-blocks-cover overlay" style="background-image: url(images/p.jpg') ?>);" data-aos="fade" data-stellar-background-ratio="0.5">
+      <div class="site-blocks-cover overlay" style="background-image: url(<?= base_url('assets/images/p.jpg') ?>);" data-aos="fade" data-stellar-background-ratio="0.5">
         <div class="container">
           <div class="row align-items-center justify-content-center text-center">
 
@@ -243,7 +243,7 @@
         <div class="row align-items-center justify-content-center text-center">
 
           <div class="col-md-7" data-aos="fade-up" data-aos-delay="400">
-           <a href="C:\Users\dell\Desktop\Finalproject\ProjectF\vid1" class="play-single-big mb-4 d-inline-block popup-vimeo"><span class="icon-play"></span></a>
+           <a href="<?= base_url('assets/')?>" class="play-single-big mb-4 d-inline-block popup-vimeo"><span class="icon-play"></span></a>
            <!--<video><source src="vid1.mp4" type="video/mp4" class="play-single-big mb-4 d-inline-block popup-vimeo">
             <source src="vid1.ogg" type="video/ogg">
            </video><span class="icon-play"></span>-->

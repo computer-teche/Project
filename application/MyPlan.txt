@@ -7,6 +7,11 @@ problems /
 2. Current tempoary header and navbar and footer are used to avoid this but we need a permanet solution
 3. Ethere the single home page or both cul,Dest have to change.
 
+Work Done/
+
+1. Css,JS,Img and all href and links are changes with base_url
+2. Internal working structure and links are doing properly
+3. Different header, Nav,Footer are created.
 
 **Views
 
