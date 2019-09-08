@@ -1,17 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Dashboard</title>
-</head>
+<?php include('Header2.php')?>
+
 <body>
-    <div class="container">
+
+    <?php include('Navbar2.php')?>
+    <div class="container  mt-5 pt-5">
     
-        <div class="jumbotron">
+        <div class="jumbotron p-5">
+            <div class="text-center">
             <a href="<?= base_url('UserC/logout');?>" class="btn btn-outline-primary btn-lg" role="button">Logout</a>
+            </div>
         </div>
     </div>
-</body>
-</html>
+    <?php include('Footer2.php')?>
