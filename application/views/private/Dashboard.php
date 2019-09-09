@@ -11,4 +11,6 @@
             </div>
         </div>
     </div>
-    <?php include('Footer2.php')?>
+
+
+    <?php include('Footer.php')?>
