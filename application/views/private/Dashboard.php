@@ -2,7 +2,16 @@
 
 <body>
 
-    <?php include('Navbar2.php')?>
+
+    <?php include('Navbar.php')?>
+    <div class="clearfix"></div>
+    <div class="nav side-nav " >
+        <div class="bg-light">
+            hello navbar
+        </div>
+    
+    
+    </div>
     <div class="container  mt-5 pt-5">
     
         <div class="jumbotron p-5">

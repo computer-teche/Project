@@ -32,6 +32,7 @@ private/
 1.dashboard
 2.adderuser
 3.viewuser
+4.Example for testing purpose
 
 **Controlier
 
