@@ -27,7 +27,15 @@ class WorkM extends CI_Model
         }else{
             return false;
         }
+
+        
     }
+
+    public function getMain(){
+        $query = $this->db->get('homepage');
+        $result = $query->result();
+        return $result;
+}
 }
 
 

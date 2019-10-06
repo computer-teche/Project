@@ -25,10 +25,11 @@
 					<span class="icon-bar"></span>
 					<span class="icon-bar"></span>
 				</button>
-						<div class="logo-agileinfo">
-							<h1><a href="index.html"><i class="fa fa-plane" aria-hidden="true"></i> Nashik Tourism</a></h1>
+					
+						<div class="logo-agileinfo ">
+							<h1><a href="index.html"><i class="fa fa-plane" aria-hidden="true"></i>Nashik Tourism</a></h1>
 						</div>
-
+					
 						<div id="navbar" class="navbar-collapse navbar-right collapse hover-effect">
 							<ul class="nav navbar-nav">
 								<li class="active"><a href="<?= base_url('MainC/')?>" data-hover="Home">Home</a></li>

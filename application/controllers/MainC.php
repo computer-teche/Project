@@ -9,8 +9,10 @@ class MainC extends CI_Controller{
     }
 
     public function index()
-    {
-        $this->load->view('public/Home');
+    {   
+        $this->load->model('WorkM');
+        $data = $this->WorkM->getMain();
+        $this->load->view('public/home',compact('data'));
     }
 
     public function Cul()

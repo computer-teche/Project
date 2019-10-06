@@ -49,8 +49,11 @@
 		<div class="container">
 			<h3 class="wthree_title_agile">PILGRIMAGES</h3>
 			<div class="wthree-news-grids">
+							
+				<?php  for($i=0; $i < 3; $i++ ):?>
+
 				<div class="col-md-4 agile-news-left">
-					<img src="<?= base_url('assets/images/trambak1.jpg') ?>" alt="">
+					<img src="<?= base_url('assets/images/').$data[$i]->img ?>" alt="">
 					<div class="agile-news-right">
 						<div class="date-grid">
 							<div class="time">
@@ -59,50 +62,16 @@
 							<div class="clearfix"> </div>
 						</div>
 						<div class="w3-agile-news-info">
-							<a href="#" data-toggle="modal" data-target="#myModal1">TRAMBAKESHWAR</a>
-							<p>It is an ancient Hindu temple in the town of Trimbak, in the Trimbakeshwar tehsil in the Nashik District of Maharashtra, India, 28 km from the city of Nashik and 40 km from nashik road. It is dedicated to the god Shiv and is one of the twelve Jyotirlingas, where the Hindu genealogy registers at Trimbakeshwar, Maharashtra are kept. The origin of the sacred Godavari river is near Trimbak. Kusavarta, a kunda (sacred pond) in the temple premises is the source of the Godavari River. The current temple was built by Peshwa Balaji Baji Rao.</p>
+							<a href="#" data-toggle="modal" data-target="#myModal1"><?= $data[$i]->name ?></a>
+							<p><?= $data[$i]->des ?></p>
 						</div>
 						<div class="button">
-							<a href="Destination.html">More</a>
+							<a href="<?= base_url('MainC/Dest')?>">More</a>
 						</div>
 					</div>
 				</div>
-				<div class="col-md-4 agile-news-left">
-					<img src="<?= base_url('assets/images/1.jpg') ?>" alt="">
-					<div class="agile-news-right">
-						<div class="date-grid">
-							<div class="time">
-								<p><i class="fa fa-calendar" aria-hidden="true"></i> August 13,2019</p>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="w3-agile-news-info">
-							<a href="#" data-toggle="modal" data-target="#myModal3">PANCHVATI, NASHIK</a>
-							<p>Holy land for the believers of Ramayana, Panchvati attracts a lot of pilgrims. A serene town located near Nasik, the site offers small sightings having a lot of significance in the epic of Ramayana. Given the legend of Panchvati, the place holds a lot oreligious significance even in the present day. Sites sucas the Kalaram Temple and the Sita Gufaa are on everpilgrims list. The Kumbh Mela takes place on the river banks of Godavari, and has a surplus of pilgrims from every corner of world during the occasion.</p>
-						</div>
-						<div class="button">
-							<a href="Destination.html">More</a>
-						</div>
-					</div>
-				</div>
-				<div class="col-md-4 agile-news-left">
-					<img src="<?= base_url('assets/images/VANI1.jpg') ?>" alt="">
-					<div class="agile-news-right">
-						<div class="date-grid">
-							<div class="time">
-								<p><i class="fa fa-calendar" aria-hidden="true"></i> August 13,2019</p>
-							</div>
-							<div class="clearfix"> </div>
-						</div>
-						<div class="w3-agile-news-info">
-							<a href="#" data-toggle="modal" data-target="#myModal3">SAPTASHRUNGI GADH, VANI, NASHIK</a>
-							<p>This hill range situated 60 km from Nashik and forms a part of the Sahyadri range. It is a blend of the Sanskrit words 'sapta' which means seven and 'shrung' which means peak.which greatly add to the beauty of the hills. Not only are the hills incredible to look at, but the forests on the hills are loaded with medicinal herbs. In fact, as per the Hindu tradition, when Laxman was lying unconscious and could only be awakened by the 'sanjeevani' herb, Lord Hanuman flew to these hills in search of the herb.</p>
-						</div>
-						<div class="button">
-							<a href="Destination.html">More</a>
-						</div>
-					</div>
-				</div>
+
+				<?php endfor ?>	
 				<div class="clearfix"> </div>
 			</div>
 		</div>
