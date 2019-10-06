@@ -23,8 +23,12 @@ class MainC extends CI_Controller{
         $this->load->view('public/Destination');
     }
 
-    
+    public function AboutUs()
+    {
+        $this->load->view('public/AboutUs');
+    }
 
+    
 }
 
 

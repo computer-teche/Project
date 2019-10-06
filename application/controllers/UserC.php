@@ -14,7 +14,8 @@ class UserC extends CI_Controller{
 
     public function index()
     {
-        $this->load->view('private/example');
+        // $this->load->view('private/example');
+        $this->load->view('dashboard');
        # $this->load->view('private/Dashboard');
     }
 

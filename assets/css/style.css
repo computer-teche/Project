@@ -1631,7 +1631,7 @@ p.para-agileits:nth-child(2) {
     padding: .7em 3em;
     font-weight: 600;
     text-align: center;
-    border: solid 1px #000000;
+    
 }
 .button a:hover {
     background: #f70255;
