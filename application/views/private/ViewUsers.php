@@ -4,12 +4,13 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Admin Area | Edit Page</title>
+    <title>Admin Area | Users</title>
     <!-- Bootstrap core CSS -->
     <link href="<?= base_url('assets/admin/css/bootstrap.min.css'); ?>" rel="stylesheet">
     
     <link href="<?= base_url('assets/admin/css/style.css'); ?>" rel="stylesheet">
-    <script src="http://cdn.ckeditor.com/4.6.1/standard/ckeditor.js"></script>
+   
+
   </head>
   <body>
 
@@ -29,7 +30,7 @@
             <li><a href="index.html">Dashboard</a></li>
             <li><a href="pages.html">Pages</a></li>
             <li><a href="posts.html">Posts</a></li>
-            <li><a href="users.html">Users</a></li>
+            <li class="active"><a href="users.html">Users</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Welcome, Brad</a></li>
@@ -43,7 +44,7 @@
       <div class="container">
         <div class="row">
           <div class="col-md-10">
-            <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Edit Page<small>About</small></h1>
+            <h1><span class="glyphicon glyphicon-cog" aria-hidden="true"></span> Users<small>Manage Site Users</small></h1>
           </div>
           <div class="col-md-2">
             <div class="dropdown create">
@@ -54,7 +55,7 @@
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                 <li><a type="button" data-toggle="modal" data-target="#addPage">Add Page</a></li>
                 <li><a href="#">Add Post</a></li>
-                <li><a href="#">Add User</a></li>
+                <li><a href="<?= base_url('UserC/LoadAddUsers')?>">Add User</a></li>
               </ul>
             </div>
           </div>
@@ -66,8 +67,7 @@
       <div class="container">
         <ol class="breadcrumb">
           <li><a href="index.html">Dashboard</a></li>
-          <li><a href="pages.html">Pages</a></li>
-          <li class="active">Edit Page</li>
+          <li class="active">Users</li>
         </ol>
       </div>
     </section>
@@ -104,21 +104,33 @@
             <!-- Website Overview -->
             <div class="panel panel-default">
               <div class="panel-heading main-color-bg">
-                <h3 class="panel-title">Edit Page</h3>
+                <h3 class="panel-title">Users</h3>
               </div>
               <div class="panel-body">
-                <form action="<?= base_url('WorkC/addUser')?>" method="post">
-                  <div class="form-group">
-                    <label>Username:</label>
-                    <input type="text" class="form-control" placeholder="Enter a Username" name="username" id="username">
+                <div class="row">
+                      <div class="col-md-12">
+                          <input class="form-control" type="text" placeholder="Filter Users...">
+                      </div>
                 </div>
-                <div class="form-group">
-                    <label>Password:</label>
-                    <input type="password" class="form-control" placeholder="Enter a Password" name="password" id="password">
-                </div>
-                  
-                  <input type="submit" class="btn btn-default" value="Submit">
-                </form>
+                <br>
+                <table class="table table-striped table-hover">
+                      <tr>
+                        <th>Name</th>
+                        <th>Email</th>
+                        <th>Joined</th>
+                        <th></th>
+                      </tr>
+                      <?php foreach($UserData as $d):?>
+                      <tr>
+                        <td> <?= $d->id ?></td>
+                        <td> <?= $d->username ?>  </td>
+                        <td> <?= $d->password ?>  </td>
+                        <td><a class="btn btn-default" type="button" onclick="ConfirmUpdate(<?= $d->id?>)">Edit</a>
+                         <a class="btn btn-danger del" type="button" onclick="ConfirmDel(<?= $d->id?>)">Delete</a></td>
+                      </tr>
+                      <?php endforeach ?>   
+                      
+                    </table>
               </div>
               </div>
 
@@ -181,7 +193,26 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="<?= base_url('assets/js1/jquery-3.3.1.min.js ') ?>"></script>
+    <script >
+        var url="<?php echo base_url();?>";
+        function ConfirmDel(id){
+        var r=confirm("Do you want to delete this?")
+        if (r==true)
+          window.location = url+"UserC/RemoveUsers/"+id;
+        else
+          return false;
+        } 
+
+        function ConfirmUpdate(id){
+        var r=confirm("Do you want to Update this?")
+        if (r==true)
+          window.location = url+"UserC/loadEditUsers/"+id;
+        else
+          return false;
+        } 
+    </script>
     <script src="<?= base_url('assets/admin/js/bootstrap.min.js'); ?>"></script>
   </body>
 </html>

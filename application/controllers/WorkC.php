@@ -30,6 +30,7 @@ class WorkC extends CI_Controller{
             redirect('WorkC');
         }
     }
+
     
     
     

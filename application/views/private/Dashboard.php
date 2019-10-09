@@ -29,11 +29,11 @@
             <li class="active"><a href="index.html">Dashboard</a></li>
             <li><a href="pages.html">Pages</a></li>
             <li><a href="posts.html">Posts</a></li>
-            <li><a href="users.html">Users</a></li>
+            <li><a href="<?= base_url('UserC/ViewUsers') ?>">Users</a></li>
           </ul>
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#">Welcome, Brad</a></li>
-            <li><a href="<?= base_url('Userc/logout');?>">Logout</a></li>
+            <li><a href="<?= base_url('UserC/logout');?>">Logout</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -54,7 +54,7 @@
               <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
                 <li><a type="button" data-toggle="modal" data-target="#addPage">Add Page</a></li>
                 <li><a href="#">Add Post</a></li>
-                <li><a href="#">Add User</a></li>
+                <li><a href="<?= base_url('UserC/LoadAddUsers')?>">Add User</a></li>
               </ul>
             </div>
           </div>
@@ -80,7 +80,7 @@
               </a>
               <a href="pages.html" class="list-group-item"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> Pages <span class="badge">12</span></a>
               <a href="posts.html" class="list-group-item"><span class="glyphicon glyphicon-pencil" aria-hidden="true"></span> Posts <span class="badge">33</span></a>
-              <a href="users.html" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users <span class="badge">203</span></a>
+              <a href="<?= base_url('UserC/ViewUsers');?>" class="list-group-item"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Users <span class="badge">203</span></a>
             </div>
 
             <div class="well">
@@ -139,36 +139,21 @@
                 </div>
                 <div class="panel-body">
                   <table class="table table-striped table-hover">
-                      <tr>
+                      
+                  
+                       <tr>
                         <th>Name</th>
                         <th>Email</th>
                         <th>Joined</th>
                       </tr>
+
+                      <?php foreach($UserData as $d):?>
                       <tr>
-                        <td>Jill Smith</td>
-                        <td>jillsmith@gmail.com</td>
-                        <td>Dec 12, 2016</td>
+                        <td> <?= $d->id ?></td>
+                        <td> <?= $d->username ?>  </td>
+                        <td> <?= $d->password ?></td>
                       </tr>
-                      <tr>
-                        <td>Eve Jackson</td>
-                        <td>ejackson@yahoo.com</td>
-                        <td>Dec 13, 2016</td>
-                      </tr>
-                      <tr>
-                        <td>John Doe</td>
-                        <td>jdoe@gmail.com</td>
-                        <td>Dec 13, 2016</td>
-                      </tr>
-                      <tr>
-                        <td>Stephanie Landon</td>
-                        <td>landon@yahoo.com</td>
-                        <td>Dec 14, 2016</td>
-                      </tr>
-                      <tr>
-                        <td>Mike Johnson</td>
-                        <td>mjohnson@gmail.com</td>
-                        <td>Dec 15, 2016</td>
-                      </tr>
+                      <?php endforeach ?> 
                     </table>
                 </div>
               </div>

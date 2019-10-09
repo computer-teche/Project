@@ -106,17 +106,34 @@
               <div class="panel-heading main-color-bg">
                 <h3 class="panel-title">Edit Page</h3>
               </div>
+
+              <?php if(!$up):?>
               <div class="panel-body">
-                <form action="<?= base_url('WorkC/addUser')?>" method="post">
-                  <div class="form-group">
+                <form action="<?= base_url('UserC/AddUser')?>" method="post">
+                <div class="form-group">
                     <label>Username:</label>
                     <input type="text" class="form-control" placeholder="Enter a Username" name="username" id="username">
                 </div>
                 <div class="form-group">
                     <label>Password:</label>
-                    <input type="password" class="form-control" placeholder="Enter a Password" name="password" id="password">
+                    <input type="text" class="form-control" placeholder="Enter a Password" name="password" id="password">
                 </div>
-                  
+                
+            <?php else: ?>
+
+            <div class="panel-body">
+                <form action="<?= base_url('UserC/EditUsers/').$UserData[0]->id ?>" method="post">                
+                <div class="form-group">
+                    <label>Username:</label>
+                    <input type="text" class="form-control" name="username" id="username" value="<?= $UserData[0]->username?>">
+                </div>
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="text" class="form-control" name="password" id="password" value="<?=  $UserData[0]->password?>">
+                </div>
+
+                <?php endif ?>
+
                   <input type="submit" class="btn btn-default" value="Submit">
                 </form>
               </div>

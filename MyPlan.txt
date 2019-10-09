@@ -6,6 +6,7 @@ problems /
 
 2. Current tempoary header and navbar and footer are used to avoid this but we need a permanet solution
 3. Ethere the single home page or both cul,Dest have to change.
+4. form validation
 
 Work Done/
 
@@ -14,6 +15,10 @@ Work Done/
 3. Different header, Nav,Footer are created.
 4. login system is created
 
+5. add user created - kunal
+6. view user created - kunal
+7. update user created - kunal
+8. delete user created - kunal
 **Views
 
 public/
@@ -29,9 +34,10 @@ public/
 7.login
 
 private/
-1.dashboard
-2.adderuser
-3.viewuser
+1.Dashboard
+2.Adduser
+3.ViewUsers
+4.Error
 4.Example for testing purpose
 
 **Controlier
@@ -40,11 +46,22 @@ MainC
 	index
 	cal
 	dest
+	
 WorkC
 	AuthUser
 
 
 UserC
+	
+	ViewUsers
+	Adduser
+	EditUsers
+	RemoveUsers
+
+	index
+	loadAddUsers
+	loadEditUsers
+
 	logout
 
 **Model
@@ -52,3 +69,8 @@ UserC
 WorkM
 	CheckUserName
 	getMain
+
+	getUsers
+	InsertUser
+	UpdateUser
+	DeleteUser
