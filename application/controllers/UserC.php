@@ -1,5 +1,5 @@
 <?php 
-
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 class UserC extends CI_Controller{
 
@@ -16,8 +16,8 @@ class UserC extends CI_Controller{
     {
         // $this->load->view('private/example');
         $this->load->model('WorkM','user');
-        $UserData = $this->user->getUser();
-        $this->load->view('private/Dashboard',compact('UserData'));
+        $UserData = $this->user->getUsers();
+        $this->load->view('private/dashboard',compact('UserData'));
     }
 
     public function ViewUsers()
@@ -25,6 +25,13 @@ class UserC extends CI_Controller{
         $this->load->model('WorkM','user');
         $UserData = $this->user->getUsers();
         $this->load->view('private/ViewUsers',compact('UserData'));
+    }
+
+    public function ViewHomePage()
+    {
+        $this->load->model('WorkM','homepage');
+        $UserData = $this->homepage->getMain();
+        $this->load->view('private/ViewHomePage',compact('UserData'));
     }
 
     public function loadAddUsers()
@@ -43,6 +50,20 @@ class UserC extends CI_Controller{
     }
 
 
+    public function loadAddHomePage()
+    {   
+        $up=0;
+        $this->load->view('private/AddHomePage',compact('up'));
+    }
+
+    public function loadEditHomePage($id)
+    {   
+        $this->load->model('WorkM');
+        $query = $this->db->where(['id'=>$id])->get('homepage');
+        $UserData = $query->result();
+        $up=1;
+        $this->load->view('private/AddHomePage',compact('UserData','up'));
+    }
 
 
 
@@ -91,6 +112,115 @@ class UserC extends CI_Controller{
         }
     }
     
+
+    public function AddHomePage()
+    {
+        $na = $this->input->post('Name');
+        $de = $this->input->post('Descripition');
+       
+        $config['upload_path']          = './assets/images/homepage';
+        $config['allowed_types']        = 'gif|jpg|png';
+        // $config['max_size']             = 10000;
+        // $config['max_width']            = 1024;
+        // $config['max_height']           = 768;
+
+        $this->load->library('upload', $config);
+        if ( ! $this->upload->do_upload('userfile'))
+        {
+            $this->session->set_flashdata('error', 'Inalid DATA');
+            $this->AddHomePage();      // $this->load->view('upload_form', $error);
+        }
+        else
+        {
+              $im = $this->upload->data('file_name');
+                $data = array(
+                                'img ' => $im,
+                                'name' => $na,
+                                'des'  => $de);
+                // $this->load->view('upload_success', $data);
+
+                $this->load->model('WorkM');
+
+                if($this->WorkM->InsertHomePage($data)){
+                    return $this->ViewHomePage();
+                    // echo "done";
+                }else{
+                    $this->session->set_flashdata('error', 'Inalid DATA');
+                    $this->AddHomePage();
+                }
+        }
+    }
+
+
+    public function EditHomePage($id)
+    {
+        $this->load->model('WorkM');
+        
+        $i = $this->WorkM->getRow($id,'homepage');
+        $tempImg = $i[0]->img;
+
+        $na = $this->input->post('Name');
+        $de = $this->input->post('Descripition');
+       
+        $config['upload_path']          = './assets/images/homepage';
+        $config['allowed_types']        = 'gif|jpg|png';
+        // $config['max_size']             = 10000;
+        // $config['max_width']            = 1024;
+        // $config['max_height']           = 768;
+        $this->load->library('upload', $config);
+        if ( ! $this->upload->do_upload('userfile'))
+        {
+            $this->session->set_flashdata('error', 'Inalid DATA');
+            $this->AddHomePage();      // $this->load->view('upload_form', $error);
+        }
+        else
+        {
+              $im = $this->upload->data('file_name');
+                $data = array('img ' => $im,
+                                'name' => $na,
+                                'des'  => $de);
+                // $this->load->view('upload_success', $data);
+
+               
+                if($this->WorkM->UpdateHomePage($data,$id)){
+                    return $this->ViewHomePage();
+                }else{
+                    $this->session->set_flashdata('error', 'Inalid DATA');
+                    $this->AddHomePage();
+                }
+
+                if( file_exists('./assets/images/homepage/'.$tempImg) )
+                { 
+                    // Remove file 
+                    unlink('./assets/images/homepage/'.$tempImg); 
+                } 
+
+    }}
+
+    public function RemoveHomePage($id)
+    {
+        
+
+            $this->load->model('WorkM');
+            $i = $this->WorkM->getRow($id,'homepage');
+            $tempImg = $i[0]->img;
+           
+            if($this->WorkM->DeleteHomePage($id)){
+                 // Delete image data 
+                 if( file_exists('./assets/images/homepage/'.$tempImg) )
+                 { 
+                     // Remove file 
+                     unlink('./assets/images/homepage/'.$tempImg); 
+                 } 
+                $this->ViewHomePage();
+            }else{
+                return false;
+            }
+           
+
+            
+        
+    }
 
    
     public function logout()

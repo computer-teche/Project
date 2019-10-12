@@ -1,6 +1,15 @@
 <?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
 class WorkM extends CI_Model
 {
+
+    public function getRow($id,$tablename=null){
+        $query = $this->db->where('id',$id)->get($tablename);
+        $result = $query->result();
+        return $result;
+    }
+
     public function CheckUserName($un, $pw)
     {
         $query = $this->db->where(['username' => $un])->get('users');
@@ -76,6 +85,43 @@ class WorkM extends CI_Model
     {
 
         if ($this->db->where('id', $id)->delete('users')) {
+            // echo "done";
+            return true;
+        } else {
+            // echo "not done";
+            return false;
+        }
+    }
+
+    public function InsertHomePage($data)
+    {
+        if ($this->db->insert('HomePage', $data)) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+
+    public function UpdateHomePage($data,$id)
+    {
+       
+        
+        $this->db->where('id', $id);
+       
+        if ( $this->db->update('HomePage', $data)) {
+            // echo "done";
+            return true;
+        } else {
+            // echo "not done";
+            return false;
+        }
+    }
+
+    public function DeleteHomePage($id)
+    {
+
+        if ($this->db->where('id', $id)->delete('Homepage')) {
             // echo "done";
             return true;
         } else {

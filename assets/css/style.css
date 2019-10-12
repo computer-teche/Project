@@ -129,13 +129,12 @@ label{
     padding: 1em 3em 0;
 }
 .logo-agileinfo {
-	float: left;
-	
+    float: left;
 }
 .logo-agileinfo h1 a {
     font-family: 'verdana', sans-serif;
     color: #0D0101;
-	font-size: 20px;
+    font-size: 20px;
     text-transform: uppercase;
     letter-spacing: 5px;
 }
@@ -1632,7 +1631,7 @@ p.para-agileits:nth-child(2) {
     padding: .7em 3em;
     font-weight: 600;
     text-align: center;
-    border: solid 1px #000000;
+    
 }
 .button a:hover {
     background: #f70255;
@@ -1839,9 +1838,9 @@ ul.social-icons li a{
 	.social-icons-agileits ul li a {
 		font-size: 1em;
 	}
-	/* .logo-agileinfo h1 a {
-		
-	} */
+	.logo-agileinfo h1 a {
+		font-size: 1.5em;
+	}
 	.nav > li > a {
 		padding: 1.3em 1.3em;
 	}
@@ -2238,10 +2237,10 @@ ul.social-icons li a{
 	}
 }
 @media(max-width: 736px){
-	/* .logo-agileinfo h1 a {
+	.logo-agileinfo h1 a {
 		font-size: 1.3em;
 		letter-spacing: 9px;
-	} */
+	}
 	.navbar-toggle {
 		margin: .5em;
 	}
@@ -2359,9 +2358,9 @@ ul.social-icons li a{
 		margin: .8em;
 		padding: 7px 7px;
 	}
-	/* .logo-agileinfo h1 a {
+	.logo-agileinfo h1 a {
 		font-size: 1.2em;
-	} */
+	}
 	.banner-text p {
 		margin-top: 1.2em;
 	}
@@ -2620,9 +2619,9 @@ ul.social-icons li a{
 }
 
 @media(max-width: 320px){
-	/* .logo-agileinfo h1 a {
+	.logo-agileinfo h1 a {
 		font-size: 1em;
-	} */
+	}
 	.navbar-toggle .icon-bar {
 		width: 19px;
 	}
