@@ -10,6 +10,14 @@ application/logs/*
 assets/video
 assets/png
 assets/images
+
+
+
+
+
+
+
+
 composer.lock
 
 user_guide_src/build/*

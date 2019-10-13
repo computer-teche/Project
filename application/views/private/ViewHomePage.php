@@ -49,7 +49,7 @@
                       <td scope="row"> <?= $d->id ?></td>
                         <td> <?= $d->name ?>  </td>
                         <td> <?= $d->des ?>  </td>
-                        <td> <img src="<?= base_url('/assets/images/homepage/').$d->img ?>"  width="200"> </td>
+                        <td> <img src="<?= base_url('/assets/images/homepage/').$d->img ?>" > </td>
                         <td><button class="btn btn-info btn-round "  onclick="ConfirmUpdate(<?= $d->id?>)">Edit</a>
                          <button class="btn btn-danger btn-round"  onclick="ConfirmDel(<?= $d->id?>)">Delete</a></td>
                       </tr>

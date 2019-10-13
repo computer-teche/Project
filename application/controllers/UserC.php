@@ -162,41 +162,58 @@ class UserC extends CI_Controller{
 
         $na = $this->input->post('Name');
         $de = $this->input->post('Descripition');
-       
-        $config['upload_path']          = './assets/images/homepage';
-        $config['allowed_types']        = 'gif|jpg|png';
-        // $config['max_size']             = 10000;
-        // $config['max_width']            = 1024;
-        // $config['max_height']           = 768;
-        $this->load->library('upload', $config);
-        if ( ! $this->upload->do_upload('userfile'))
-        {
-            $this->session->set_flashdata('error', 'Inalid DATA');
-            $this->AddHomePage();      // $this->load->view('upload_form', $error);
+        $img = $_FILES['userfile']['name'];
+
+        
+        $data = array(  'name' => $na,
+                        'des'  => $de ,
+                        'img'  => ''   );
+                        
+        if($img == ''){
+            $data['img']=$tempImg; 
         }
         else
         {
-              $im = $this->upload->data('file_name');
-                $data = array('img ' => $im,
-                                'name' => $na,
-                                'des'  => $de);
-                // $this->load->view('upload_success', $data);
-
-               
-                if($this->WorkM->UpdateHomePage($data,$id)){
-                    return $this->ViewHomePage();
-                }else{
+            $config['upload_path']          = './assets/images/homepage';
+            $config['allowed_types']        = 'gif|jpg|png';
+            // $config['max_size']             = 10000;
+            // $config['max_width']            = 1024;
+            // $config['max_height']           = 768;
+            $this->load->library('upload', $config);
+                if ( ! $this->upload->do_upload('userfile'))
+                {
+                    
                     $this->session->set_flashdata('error', 'Inalid DATA');
-                    $this->AddHomePage();
-                }
+                    $this->AddHomePage();      // $this->load->view('upload_form', $error);
+                }   
+                else{
+                    echo "<script>console.log('something')</script>";
+                    $this->delImg('./assets/images/homepage/'.$tempImg);
+                    $im = $this->upload->data('file_name');
+                    $data['img']=$im; 
+                }   
+        } 
+                
+        if($this->WorkM->UpdateHomePage($data,$id)){
+            return $this->ViewHomePage();
+        }else{
+            $this->session->set_flashdata('error', 'Inalid DATA');
+            $this->AddHomePage();
+        }
+        
+        
+        
+        
+    }
 
-                if( file_exists('./assets/images/homepage/'.$tempImg) )
+    public function DelImg($tempImg){
+        if( file_exists($tempImg) )
                 { 
-                    // Remove file 
-                    unlink('./assets/images/homepage/'.$tempImg); 
+                    unlink($tempImg); 
                 } 
+    }
 
-    }}
+
 
     public function RemoveHomePage($id)
     {
@@ -208,11 +225,7 @@ class UserC extends CI_Controller{
            
             if($this->WorkM->DeleteHomePage($id)){
                  // Delete image data 
-                 if( file_exists('./assets/images/homepage/'.$tempImg) )
-                 { 
-                     // Remove file 
-                     unlink('./assets/images/homepage/'.$tempImg); 
-                 } 
+                 $this->delImg('./assets/images/homepage/'.$tempImg);
                 $this->ViewHomePage();
             }else{
                 return false;
