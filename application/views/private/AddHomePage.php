@@ -25,7 +25,7 @@
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>Name:</label>
-                        <input type="text" class="form-control" placeholder="Enter a Name" name="Name" id="Name">
+                        <input type="text" class="form-control" require placeholder="Enter a Name" name="Name" id="Name">
                       </div>
                     </div>
                   </div>
@@ -33,7 +33,7 @@
                     <div class="col-md-12">
                       <div class="form-group">
                       <label>Descripition:</label>
-                      <textarea class="form-control textarea" name="Descripition" id="Descripition">Oh so, your weak rhyme You doubt I'll bother, reading into it</textarea>
+                      <textarea class="form-control textarea" require name="Descripition" id="Descripition">Oh so, your weak rhyme You doubt I'll bother, reading into it</textarea>
                       </div>
                     </div>
                   </div>
@@ -41,7 +41,7 @@
                   <div class="col-md-12">
                     <div class="form-group">
                       <label>Image :</label>
-                      <input type="file" class="form-control form-control-file" placeholder="Image" name="userfile" id="Image"> <button class="btn btn-info">Upload </button>
+                      <input type="file" class="form-control form-control-file" require placeholder="Image" name="userfile" id="Image"> <button class="btn btn-info">Upload </button>
                     </div>
                   </div>
 
@@ -61,7 +61,7 @@
                     <div class="col-md-6 pr-1">
                       <div class="form-group">
                         <label>Name:</label>
-                        <input type="text" class="form-control" placeholder="Enter a Name" name="Name" id="Name" value="<?=  $UserData[0]->name?>">
+                        <input type="text" class="form-control" require placeholder="Enter a Name" name="Name" id="Name" value="<?=  $UserData[0]->name?>">
                       </div>
                     </div>
                   </div>
@@ -69,14 +69,14 @@
                     <div class="col-md-12">
                       <div class="form-group">
                       <label>Descripition:</label>
-                      <textarea class="form-control textarea" name="Descripition" id="Descripition" ><?=  $UserData[0]->des?></textarea>
+                      <textarea class="form-control textarea" require name="Descripition" id="Descripition" ><?=  $UserData[0]->des?></textarea>
                       </div>
                     </div>
                   </div>
                   
                   <div class="col-md-12">
                     <div class="form-group">
-                    <input type="file" class="form-control form-control-file" placeholder="Image" name="userfile" id="Image"> <button class="btn btn-info">Upload </button>
+                    <input type="file" class="form-control form-control-file" require placeholder="Image" name="userfile" id="Image"> <button class="btn btn-info">Upload </button>
                     </div>
                   </div>             
 

@@ -20,6 +20,23 @@ class UserC extends CI_Controller{
         $this->load->view('private/dashboard',compact('UserData'));
     }
 
+
+    public function map()
+    {
+        $this->load->view('private/map.php');
+    }
+
+    public function user()
+    {
+        $this->load->view('private/user.php');
+    }
+
+    public function tables()
+    {
+        $this->load->view('private/tables.php');
+    }
+
+    
     public function ViewUsers()
     {
         $this->load->model('WorkM','user');
@@ -168,12 +185,13 @@ class UserC extends CI_Controller{
         $data = array(  'name' => $na,
                         'des'  => $de ,
                         'img'  => ''   );
+                        // echo $img;
+                        // echo $tempImg;
                         
-        if($img == ''){
+        if($img == '' or $img == $tempImg){
             $data['img']=$tempImg; 
         }
-        else
-        {
+       else{
             $config['upload_path']          = './assets/images/homepage';
             $config['allowed_types']        = 'gif|jpg|png';
             // $config['max_size']             = 10000;
